@@ -1,6 +1,7 @@
 import dataclasses
 
 from .pontuation_enum import PointsEnum
+from .snake import SnakeEntity
 
 
 @dataclasses.dataclass(init=False)
@@ -9,13 +10,13 @@ class GridEntity:
     columns: int
     grid_matrix: [[]]
 
-    def __init__(self, rows: int, columns: int, snakes_positions_list: [], foods_positions_list: [],
+    def __init__(self, rows: int, columns: int, snakes_list: [SnakeEntity], foods_positions_list: [],
                  hazards_positions_list: []):
 
         self.rows = rows
         self.columns = columns
 
-        self.update_grid_values(snakes_positions_list, foods_positions_list, hazards_positions_list)
+        self.update_grid_values(snakes_list.body, foods_positions_list, hazards_positions_list)
 
     def update_grid_values(self, snakes_positions_list: [], foods_positions_list: [],
                            hazards_positions_list: []):
