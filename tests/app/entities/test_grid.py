@@ -1,5 +1,6 @@
 from src.app.entities.grid import GridEntity
 from src.app.entities.pontuation_enum import PointsEnum
+from src.app.entities.snake import SnakeEntity
 
 
 class Test_Grid:
@@ -14,7 +15,8 @@ class Test_Grid:
                 assert grid.grid_matrix[i][j] == 0
 
     def test_grid_0_0_and_1_2_positions_must_be_snake_value(self):
-        grid = GridEntity(3, 3, snakes_positions_list=[{"x": 0, "y": 0}, {'x': 1, 'y': 2}],
+        grid = GridEntity(3, 3,
+                          snakes_list=[SnakeEntity(100, [{'x': 0, 'y': 0}, {'x': 1, 'y': 2}],[{'x': 0, 'y': 0}])],
                           foods_positions_list=[],
                           hazards_positions_list=[])
 
@@ -26,7 +28,7 @@ class Test_Grid:
     def test_grid_0_0_and_1_2_positions_must_be_food_value(self):
         grid = GridEntity(3, 3,
                           foods_positions_list=[{"x": 0, "y": 0}, {'x': 1, 'y': 2}],
-                          snakes_positions_list=[],
+                          snakes_list=[SnakeEntity(100, [],[])],
                           hazards_positions_list=[])
 
         assert grid.rows == 3
@@ -37,7 +39,7 @@ class Test_Grid:
     def test_grid_0_0_and_1_2_positions_must_be_hazard_value(self):
         grid = GridEntity(3, 3,
                           hazards_positions_list=[{"x": 0, "y": 0}, {'x': 1, 'y': 2}],
-                          snakes_positions_list=[],
+                          snakes_list=[SnakeEntity(100, [],[])],
                           foods_positions_list=[])
 
         assert grid.rows == 3
