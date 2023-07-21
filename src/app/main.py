@@ -16,7 +16,7 @@ def read_root():
     }
 
 @app.post("/move")
-def create_item(request: dict):
+def move_snake(request: dict):
     return {
         "move": "right",
         "shout": "only right"
