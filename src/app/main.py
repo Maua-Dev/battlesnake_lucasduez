@@ -3,24 +3,24 @@ from mangum import Mangum
 
 app = FastAPI()
 
-# TODO: Implement my logic here to handle the requests from Battlesnake
 
 @app.get("/")
 def read_root():
-    return {"Teste: Testante"}
+    return {
+        "apiversion": "1",
+        "author": "Lucas-Duez",
+        "color": "#888888",
+        "head": "default",
+        "tail": "default",
+        "version": "0.0.1-pre-alpha"
+    }
 
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int):
-    return {"item_id": item_id}
-
-@app.post("/create_item")
+@app.post("/move")
 def create_item(request: dict):
-    item_id = request.get("item_id")
-    name = request.get("name")
-
-    return {"item_id": item_id,
-            "name": name}   
+    return {
+        "move": "right",
+        "shout": "only right"
+        }
 
 
 handler = Mangum(app, lifespan="off")
