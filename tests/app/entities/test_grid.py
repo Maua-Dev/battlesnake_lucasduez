@@ -16,7 +16,7 @@ class Test_Grid:
 
     def test_grid_0_0_and_1_2_positions_must_be_snake_value(self):
         grid = GridEntity(3, 3,
-                          snakes_list=[SnakeEntity(100, [{'x': 0, 'y': 0}, {'x': 1, 'y': 2}],[{'x': 0, 'y': 0}])],
+                          snakes_list=[SnakeEntity(100, [{'x': 0, 'y': 0}, {'x': 1, 'y': 2}],[{'x': 0, 'y': 0}], 3, 3)],
                           foods_positions_list=[],
                           hazards_positions_list=[])
 
@@ -28,7 +28,7 @@ class Test_Grid:
     def test_grid_0_0_and_1_2_positions_must_be_food_value(self):
         grid = GridEntity(3, 3,
                           foods_positions_list=[{"x": 0, "y": 0}, {'x': 1, 'y': 2}],
-                          snakes_list=[SnakeEntity(100, [],[])],
+                          snakes_list=[SnakeEntity(100, [],[], 3, 3)],
                           hazards_positions_list=[])
 
         assert grid.rows == 3
@@ -39,7 +39,7 @@ class Test_Grid:
     def test_grid_0_0_and_1_2_positions_must_be_hazard_value(self):
         grid = GridEntity(3, 3,
                           hazards_positions_list=[{"x": 0, "y": 0}, {'x': 1, 'y': 2}],
-                          snakes_list=[SnakeEntity(100, [],[])],
+                          snakes_list=[SnakeEntity(100, [],[], 3, 3)],
                           foods_positions_list=[])
 
         assert grid.rows == 3

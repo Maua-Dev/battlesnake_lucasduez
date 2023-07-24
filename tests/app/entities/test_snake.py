@@ -33,6 +33,7 @@ class Test_SnakeEntity:
 
         assert snake.head_pos == {'x': 0, 'y': 5}
         assert snake.body[1] == {'x': 1, 'y': 5}
+        assert snake.health == 100
 
     def test_is_movement_valid_should_return_true(self):
         body = [
