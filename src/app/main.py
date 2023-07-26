@@ -28,7 +28,7 @@ def move_snake(request: dict):
     next_move = find_move_usecase.calculate_best_move()
 
     return {
-        "move": next_move,
+        "move": next_move.value,
         "shout": "only right"
         }
 
