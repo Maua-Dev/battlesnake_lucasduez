@@ -10,7 +10,7 @@ class InputAdapterBattleSnake(IInputAdapter):
 
     def __init__(self, request: dict):
         board_viewmodel = request["board"]
-        all_snakes_viewmodels = request['snakes']
+        all_snakes_viewmodels = board_viewmodel['snakes']
 
         for i in range(len(all_snakes_viewmodels)):
             current_viewmodel = all_snakes_viewmodels[i]
