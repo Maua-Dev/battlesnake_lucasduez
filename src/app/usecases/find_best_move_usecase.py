@@ -1,7 +1,5 @@
-import math
 
 from ..adapters.input_adapter_interface import IInputAdapter
-from ..entities.grid import GridEntity
 from ..entities.movements_enum import Movements
 from ..entities.pontuation_enum import PointsEnum
 from ..entities.snake import SnakeEntity
@@ -58,4 +56,3 @@ class FindBestMoveUsecase:
             score_left = self.minimax(current_snake, Movements.LEFT, turn+1)
 
             return max(score_up, score_down, score_right, score_left)
-
