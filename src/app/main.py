@@ -1,11 +1,9 @@
 from fastapi import FastAPI
 from mangum import Mangum
 
-from src.app.adapters.input_adapter_battle_snake import InputAdapterBattleSnake
-from src.app.usecases.find_best_move_usecase import FindBestMoveUsecase
-# from .adapters.input_adapter_battle_snake import InputAdapterBattleSnake
-# from .usecases.find_best_move_usecase import FindBestMoveUsecase
-from ..app.adapters.input_adapter_interface import IInputAdapter
+from .adapters.input_adapter_battle_snake import InputAdapterBattleSnake
+from .usecases.find_best_move_usecase import FindBestMoveUsecase
+# from ..app.adapters.input_adapter_interface import IInputAdapter
 
 app = FastAPI()
 
