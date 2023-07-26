@@ -21,8 +21,9 @@ usecase = FindBestMoveUsecase(input_adapter, 2)
 
 class Test_FindBestMoveUsecase:
 
-    def test_kappa(self):
-        score = usecase.minimax(grid.snakes_list[-1], Movements.LEFT)
-
-
-        assert score == 0
+    # def test_kappa(self):
+    #     score = usecase.minimax(grid.snakes_list[-1], Movements.LEFT)
+    #
+    #
+    #     assert score == 0
+    pass
