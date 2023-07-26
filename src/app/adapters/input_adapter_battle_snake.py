@@ -6,7 +6,7 @@ from ..entities.snake import SnakeEntity
 class InputAdapterBattleSnake(IInputAdapter):
     grid: GridEntity
     my_snake: SnakeEntity
-    all_snakes: [SnakeEntity]
+    all_snakes: [SnakeEntity] = []
 
     def __init__(self, request: dict):
         board_viewmodel = request["board"]
@@ -14,13 +14,13 @@ class InputAdapterBattleSnake(IInputAdapter):
 
         for i in range(len(all_snakes_viewmodels)):
             current_viewmodel = all_snakes_viewmodels[i]
-            self.all_snakes[i] = SnakeEntity(
+            self.all_snakes.append(SnakeEntity(
                 health=current_viewmodel['health'],
                 body=current_viewmodel['body'],
                 head_pos=current_viewmodel['body'][0],
                 grid_rows_number=board_viewmodel['width'],
                 grid_columns_number=board_viewmodel['height'],
-            )
+            ))
 
         self.my_snake = self.all_snakes[0]
 
