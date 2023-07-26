@@ -16,7 +16,7 @@ class Test_Grid:
 
     def test_grid_0_0_and_1_2_positions_must_be_snake_value(self):
         grid = GridEntity(3, 3,
-                          snakes_list=[SnakeEntity(100, [{'x': 0, 'y': 0}, {'x': 1, 'y': 2}],[{'x': 0, 'y': 0}], 3, 3)],
+                          snakes_list=[SnakeEntity(100, [{'x': 0, 'y': 0}, {'x': 1, 'y': 2}],{'x': 0, 'y': 0}, 3, 3)],
                           foods_positions_list=[],
                           hazards_positions_list=[])
 

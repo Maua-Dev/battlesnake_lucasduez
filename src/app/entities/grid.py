@@ -16,6 +16,9 @@ class GridEntity:
         self.rows = rows
         self.columns = columns
 
+        self.snakes_list = snakes_list
+        self.foods_positions_list = foods_positions_list
+        self.hazard_positions_list = hazards_positions_list
         self.update_grid_values(snakes_list, foods_positions_list, hazards_positions_list)
 
     def update_grid_values(self, snakes_list: [SnakeEntity], foods_positions_list: [],
