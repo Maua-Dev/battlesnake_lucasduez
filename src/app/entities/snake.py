@@ -10,6 +10,7 @@ class SnakeEntity:
     head_pos: dict
     grid_rows_number: int
     grid_columns_number: int
+    last_move: Movements = None
 
     def move_snake(self, direction: Movements):
 
@@ -20,7 +21,9 @@ class SnakeEntity:
             self.body[-i] = self.body[-i - 1]
 
         self.body[0] = self.get_new_head_pos(direction)
+        self.head_pos = self.body[0]
         self.health -= 1
+        self.last_move = direction
 
     def get_new_head_pos(self, direction: Movements):
         current_pos = self.head_pos
@@ -43,16 +46,16 @@ class SnakeEntity:
     def is_movement_valid(self, direction: Movements):
         current_pos = self.head_pos
 
-        if current_pos['x'] == 0 and direction == Movements.LEFT:
+        if current_pos['x'] == 0 and direction == Movements.LEFT or (self.last_move == Movements.RIGHT and direction == Movements.LEFT):
             return False
 
-        if current_pos['x'] == self.grid_columns_number - 1 and direction == Movements.RIGHT:
+        if current_pos['x'] == self.grid_columns_number - 1 and direction == Movements.RIGHT or (self.last_move == Movements.LEFT and direction == Movements.RIGHT):
             return False
 
-        if current_pos['y'] == 0 and direction == Movements.DOWN:
+        if current_pos['y'] == 0 and direction == Movements.DOWN or (self.last_move == Movements.UP and direction == Movements.DOWN):
             return False
 
-        if current_pos['y'] == self.grid_rows_number - 1 and direction == Movements.UP:
+        if current_pos['y'] == self.grid_rows_number - 1 and direction == Movements.UP or (self.last_move == Movements.DOWN and direction == Movements.UP):
             return False
 
         return True

@@ -54,3 +54,14 @@ class Test_SnakeEntity:
         snake = SnakeEntity(100, body, body[0], 11, 11)
 
         assert snake.is_movement_valid(Movements.LEFT) is False
+
+    def test_snake_cant_move_to_right_if_last_move_was_left(self):
+        body = [
+            {'x': 0, 'y': 5},
+            {'x': 1, 'y': 5},
+        ]
+
+        snake = SnakeEntity(100, body, body[0], 11, 11)
+        snake.last_move = Movements.LEFT
+
+        assert not snake.is_movement_valid(Movements.RIGHT)
